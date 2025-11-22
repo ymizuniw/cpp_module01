@@ -1,0 +1,27 @@
+#ifndef HUMAN_A_HPP
+#define HUMAN_A_HPP
+
+#include "Weapon.hpp"
+//use reference when non-null guarantee is needed, and when it does not need to be replaced.
+//HumanA will have weapon necessarily, then it shoul be reference member.
+
+class HumanA
+{
+    private:
+        std::string name_;
+        Weapon weapon_;
+    public:
+        HumanA(std::string human_name, std::string weapon_name);
+        ~HumanA();
+        HumanA operator=(HumanA &other){
+            if (this!=&other)
+            {
+                name_=other.name_;
+                weapon_=other.weapon_;
+            }
+            return *this;
+        }
+        void attack();
+};
+
+#endif

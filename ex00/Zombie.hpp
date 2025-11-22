@@ -14,4 +14,6 @@ class Zombie
         void randomChump(std::string name);
 };
 
+void        print_msg(std::string msg);
+
 #endif

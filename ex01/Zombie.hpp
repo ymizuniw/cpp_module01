@@ -18,4 +18,5 @@ class Zombie
 Zombie* zombieHorde(int N, std::string name);
 
 void      print_msg(std::string msg);
+
 #endif

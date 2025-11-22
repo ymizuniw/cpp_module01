@@ -39,8 +39,6 @@ void print_str_ref(const std::string &str)
     std::cout << &str << std::endl;
 }
 
-
-
 int main(void)
 {
     std::string str = "HI THIS IS BRAIN";
@@ -50,6 +48,5 @@ int main(void)
     print_str(str);
     print_str_ptr(stringPTR);
     print_str_ref(stringREF);
-
     return(0);
 }
