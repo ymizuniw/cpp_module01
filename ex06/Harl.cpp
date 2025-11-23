@@ -38,39 +38,40 @@ typedef void (Harl::*f_table)(void);//ret: void, owner: Harl::, pointer_variable
 void Harl::complain(std::string level)
 {
     //table of above functions.
-    f_table operations[] = {debug, info, warning, error};
+    f_table operations[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     int call_level = stoi(level);
-    if (call_level>0 && call_level <=3)
-        operations[call_level];
+    if (call_level>=0 && call_level <=3)
+        (this->*operations[call_level])();
     else
-        std::cerr << "level is 0-4." << std::endl;
+        std::cerr << "level is 0-3." << std::endl;
 }
 
 typedef void (Harl::*f_table)(void);//ret: void, owner: Harl::, pointer_variable_name:*f_table, arg_type:void.
 
-void call_from_level(std::string level)
+void Harl::call_from_level(std::string level)
 {
-    f_table operations[] = {debug, info, warning, error};
+    Harl harl;
+    f_table operations[] = {&Harl::debug, &Harl::info,&Harl::warning, &Harl::error};
     int call_level = stoi(level);
     switch(call_level)
     {
         case 3:
-            Harl::complain(ERROR);
+            harl.complain(ERROR);
             break;
         case 2:
-            Harl::complain(WARNING);
-            Harl::complain(ERROR);
+            harl.complain(WARNING);
+            harl.complain(ERROR);
         case 1:
-            Harl::complain(INFO);
-            Harl::complain(WARNING);
-            Harl::complain(ERROR);
+            harl.complain(INFO);
+            harl.complain(WARNING);
+            harl.complain(ERROR);
             break;
         case 0:
-            Harl::complain(DEBUG);
-            Harl::complain(INFO);
-            Harl::complain(WARNING);
-            Harl::complain(ERROR);
+            harl.complain(DEBUG);
+            harl.complain(INFO);
+            harl.complain(WARNING);
+            harl.complain(ERROR);
         default:
             std::cerr << "function level is not appropriate." << std::endl;
     }

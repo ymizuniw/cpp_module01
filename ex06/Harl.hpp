@@ -12,7 +12,8 @@ class Harl
         void warning(void);
         void error(void);
     public:
-        static void complain(std::string level);
+        void complain(std::string level);
+        void call_from_level(std::string level);
 };
 
-#endif
+#endif 
