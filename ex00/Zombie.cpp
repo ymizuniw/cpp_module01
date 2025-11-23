@@ -1,11 +1,11 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie(void)
 {
     print_msg("Zombie constructed.");
 }
 
-Zombie::~Zombie()
+Zombie::~Zombie(void)
 {
     print_msg("Zombie destructed.");
 }
