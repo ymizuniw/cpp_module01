@@ -29,6 +29,11 @@ void print_str(std::string str)
     std::cout << str << std::endl;
 }
 
+void print_str_addr(const std::string *str)
+{
+    std::cout << str << std::endl;
+}
+
 void print_str_ptr(const std::string *str)
 {
     std::cout << str <<std::endl;
@@ -46,6 +51,7 @@ int main(void)
     std::string &stringREF = str;
 
     print_str(str);
+    print_str_addr(&str);
     print_str_ptr(stringPTR);
     print_str_ref(stringREF);
     return(0);

@@ -19,59 +19,69 @@
 
 //if (pos!=std::string::npos)
 //{}
-
 //open original file, open copy file, read original file, find pattern in original file, replace and write to copy file.
-int process_file(char **argv)
-{
-    std::string ori_filename = argv[0];
-    std::string target = argv[1];
-    std::string subset = argv[2];
-    std::string new_filename = ori_filename.append(".replace");
-    size_t target_pos = 0;
-    std::string line;
-    std::string result;
 
-    std::ifstream in_file(ori_filename);
-    if (!in_file.is_open())
+std::string process_line(std::string line, std::string target, std::string subset)
+{
+    //find subset in target and append str loop.
+    size_t start = 0;
+    size_t found = 0;
+    std::string tmp;
+    std::string processed_line;
+
+    while (1)
     {
-        print_err("open: ");
-        return (-1);
-    }
-    while (std::getline(in_file, line))
-    {
-        //find pattern
-        target_pos = line.find(target);
-        if (target_pos!=std::string::npos)
+        found = line.find(target, start);
+        if (found!=std::string::npos)
         {
-            while (target_pos!=0)
-            {
-                //find the subset from the line.
-                if (target_pos!=std::string::npos)//if found.
-                {
-                    result.append(line, 0, target_pos - 1);
-                    result.append(subset);
-                    line.erase(0, target_pos+subset.length());//erase from head to subset found place's last idx.
-                }
-                else
-                    break;
-                target_pos = line.find(target);
-            }
+            tmp = line.substr(start, found - start);
+            processed_line.append(tmp);
+            processed_line.append(subset);
+            start = found + target.length(); 
         }
         else
         {
-            result.append(line);
-            line.erase(0, line.length());
+            tmp = line.substr(start);
+            processed_line.append(tmp);
+            break ;
         }
     }
-    in_file.close();
-    std::ofstream cp_file(new_filename);
-    if (!cp_file.is_open())
+    return (processed_line);
+}
+
+bool get_line_loop(std::string &result, std::string filename, std::string target, std::string subset)
+{
+    std::string line;
+    std::ifstream input_file(filename);
+
+    if (!input_file.is_open())
     {
-        print_err("open: ");
-        return (-1);
+        std::cerr << "open file failed." << std::endl;
+        return (0);
     }
-    cp_file << result << std::endl;
-    cp_file.close();
+    while(std::getline(input_file, line))
+    {
+        result += process_line(line, target, subset);
+        result += "\n";
+    }
+    input_file.close();
+    return (1);
+}
+
+bool ft_replace(std::string filename, std::string target, std::string subset)
+{
+    std::string replaced;
+    std::string out_file_name = filename + ".replace";
+    std::ofstream out_file(out_file_name);
+
+    if (!out_file.is_open())
+    {
+        std::cerr << "open file failed." << std::endl;
+        return (0);
+    }
+    out_file << replaced;
+    if (!get_line_loop(replaced, filename, target, subset))
+        return (0);
     return(1);
 }
 
@@ -97,7 +107,7 @@ int main(int argc, char **argv)
         print_err("s2 is empty.");
         return (1);
     }
-    if (process_file(argv)<0)
+    if (!ft_replace(argv[1], argv[2], argv[3]))
         return (1);
     return (0);
 }
