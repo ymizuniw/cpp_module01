@@ -1,6 +1,11 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+void print_msg(std::string msg)
+{
+    std::cout << msg << std::endl;
+}
+
+Zombie::Zombie(std::string name) : name_(name)
 {
     print_msg("Zombie constructed.");
 }
@@ -12,5 +17,5 @@ Zombie::~Zombie(void)
 
 void Zombie::announce(void)
 {
-    std::cout << "<" << name_ << ">" << ":" << "BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << name_  << ":" << "BraiiiiiiinnnzzzZ..." << std::endl;
 }

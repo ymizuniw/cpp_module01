@@ -3,10 +3,41 @@
 int main(void)
 {
     int how_many_zombie;
+    std::string zombie_name;
     Zombie *zombie_horde;
-    std::cin >> how_many_zombie;
-    //err handling for cin.
-    zombie_horde = zombieHorde(how_many_zombie, "John");
+
+    while (1)
+    {
+        std::cout << "enter how many zombie to generate." << std::endl;
+        if(!(std::cin >> how_many_zombie))
+        {
+            std::cerr << "invalid input." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        else
+        {
+            if (how_many_zombie<0 || how_many_zombie>100)
+            {
+                std::cerr << "0-100 is allowed for safe." << std::endl;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue ;
+            }
+            break;
+        }
+    }
+    std::cout << "enter zombie's name." << std::endl;
+    if (!(std::cin >> zombie_name))
+    {
+        std::cerr << "invalid input." << std::endl;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return (1);
+    }
+    zombie_horde = zombieHorde(how_many_zombie, zombie_name);
+    if (zombie_horde==nullptr)
+        return (1);
     for (int i=0;i<how_many_zombie;i++)
         zombie_horde[i].announce();
     delete[] zombie_horde;

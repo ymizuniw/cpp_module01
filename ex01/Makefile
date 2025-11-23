@@ -3,7 +3,7 @@ CPP=c++
 CPPFLAG=-Wall -Wextra -Werror -std=c++98
 
 INC=Zombie.hpp
-SRCS=main.cpp Zombie.cpp Zombie.hpp zombieHorde.cpp print_wrapper.cpp
+SRCS=main.cpp Zombie.cpp Zombie.hpp zombieHorde.cpp
 OBJS=$(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)
