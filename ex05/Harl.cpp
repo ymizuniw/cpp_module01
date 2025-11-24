@@ -7,7 +7,6 @@
     //     void error(void);
     // public:
     //     void complain(std::string level);
-
     
 void Harl::debug(void)
 {
@@ -31,14 +30,26 @@ void Harl::error(void)
 
 typedef void (Harl::*f_table)(void);//ret: void, owner: Harl::, pointer_variable_name:*f_table, arg_type:void.
 
-
-
 void Harl::complain(std::string level)
 {
     //table of above functions.
-    f_table operations[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    f_table operations[] = {
+        &Harl::debug, 
+        &Harl::info, 
+        &Harl::warning, 
+        &Harl::error
+    };
 
-    int call_level = stoi(level);//exception handling is not implemented.
+    int call_level;
+    try{
+        call_level = stoi(level);
+    } catch (const std::invalid_argument &e){
+        std::cerr << "input level:" << e.what() << std::endl;
+        return ;
+    } catch (const std::out_of_range &e){
+        std::cerr << "input level:" << e.what() << std::endl;
+        return ;
+    }
     if (call_level>=0 && call_level <=3)
         (this->*operations[call_level])();
     else
