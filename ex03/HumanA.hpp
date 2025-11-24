@@ -1,5 +1,5 @@
-#ifndef HUMAN_A_HPP
-#define HUMAN_A_HPP
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 //use reference when non-null guarantee is needed, and when it does not need to be replaced.
