@@ -16,7 +16,7 @@ class Weapon
             type_=other.type_;
             return *this;
         }
-        std::string &getType(void) const;
+        std::string getType(void) const;
         void setType(std::string &type);
 };
 

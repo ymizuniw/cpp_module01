@@ -6,13 +6,13 @@
 class HumanB
 {
     private:
-        Weapon weapon_;
         std::string name_;
+        Weapon *weapon_;
     public:
         HumanB(std::string human_name);
-        HumanB(std::string human_name, std::string weapon_name);
+        HumanB(std::string human_name, Weapon *weapon_name);
         ~HumanB();
-        HumanB operator=(HumanB &other){
+        HumanB operator=(const HumanB &other){
             if (this!=&other)
             {
                 name_=other.name_;

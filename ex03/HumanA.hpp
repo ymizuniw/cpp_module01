@@ -9,9 +9,9 @@ class HumanA
 {
     private:
         std::string name_;
-        Weapon weapon_;
+        Weapon &weapon_;
     public:
-        HumanA(std::string human_name, std::string weapon_name);
+        HumanA(std::string human_name, Weapon &weapon);
         ~HumanA();
         HumanA operator=(HumanA &other){
             if (this!=&other)

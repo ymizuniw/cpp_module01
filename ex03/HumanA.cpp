@@ -1,9 +1,7 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string human_name, std::string weapon_name)
+HumanA::HumanA(std::string human_name, Weapon &weapon_ref): name_(human_name), weapon_(weapon_ref)
 {
-    name_=human_name;
-    weapon_.setType(weapon_name);
     print_msg("HumanA is constructed with human_name and weapon_name.");
 }
 
