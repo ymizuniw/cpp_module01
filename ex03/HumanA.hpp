@@ -13,14 +13,7 @@ class HumanA
     public:
         HumanA(std::string human_name, Weapon &weapon);
         ~HumanA();
-        HumanA operator=(HumanA &other){
-            if (this!=&other)
-            {
-                name_=other.name_;
-                weapon_=other.weapon_;
-            }
-            return *this;
-        }
+        HumanA &operator=(HumanA &other);
         void attack();
 };
 

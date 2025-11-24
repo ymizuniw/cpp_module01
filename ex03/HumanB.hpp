@@ -1,5 +1,5 @@
 #ifndef HUMANB_HPP
-#define HUMANB_HPP
+#define HUMAN_B_HPP
 
 #include "Weapon.hpp"
 
@@ -12,14 +12,7 @@ class HumanB
         HumanB(std::string human_name);
         HumanB(std::string human_name, Weapon *weapon_name);
         ~HumanB();
-        HumanB operator=(const HumanB &other){
-            if (this!=&other)
-            {
-                name_=other.name_;
-                weapon_=other.weapon_;
-            }
-            return *this;
-        }
+        HumanB &operator=(const HumanB &other);
         void attack();
 };
 
