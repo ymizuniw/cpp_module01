@@ -16,4 +16,4 @@ class Harl
         void call_from_level(std::string level);
 };
 
-#endif 
+#endif
