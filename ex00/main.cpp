@@ -19,6 +19,9 @@ int main(void)
         delete(obj2);
         return (1);
     }
+    obj1.announce();
+    obj2->announce();
+    obj3->announce();
     delete(obj2);
     delete(obj3);
     return (0);

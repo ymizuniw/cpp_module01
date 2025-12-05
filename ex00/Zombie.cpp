@@ -7,12 +7,12 @@ void print_msg(std::string msg)
 
 Zombie::Zombie(std::string name) : name_(name)
 {
-    print_msg("Zombie constructed.");
+    print_msg("Zombie::" + name_ + " constructed");
 }
 
 Zombie::~Zombie(void)
 {
-    print_msg("Zombie destructed.");
+    print_msg("Zombie::" + name_ + " destructed");
 }
 
 void Zombie::announce(void)
