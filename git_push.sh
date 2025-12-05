@@ -24,7 +24,7 @@ fi
 
 read -p "push?[y/n]: "  PUSH
 if [ $PUSH == "y" ]; then
-    git push "$BRANCH"
+    git push
 else
     printf '%s\n' "read failed."
     exit 1
