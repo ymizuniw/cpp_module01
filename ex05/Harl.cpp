@@ -45,5 +45,5 @@ void Harl::complain(std::string level)
     if (call_level>=0 && call_level <=3)
         (this->*operations[call_level])();
     else
-        std::cerr << "level is 0-3." << std::endl;
+        std::cerr << "levels are [DEBUG] [INFO] [WARNING] [ERROR]." << std::endl;
 }
