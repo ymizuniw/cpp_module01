@@ -12,7 +12,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-    std::cerr << "[WARNIGN]: warning() is called." << std::endl;
+    std::cerr << "[WARNING]: warning() is called." << std::endl;
 }
 
 void Harl::error(void)
@@ -24,26 +24,22 @@ typedef void (Harl::*f_table)(void);//ret: void, owner: Harl::, pointer_variable
 
 void Harl::complain(std::string level)
 {
-    //table of above functions.
-    f_table operations[] = {
+    static const std::string messages[4]={
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR"
+    };
+    f_table operations[4] = {
         &Harl::debug, 
         &Harl::info, 
         &Harl::warning, 
         &Harl::error
     };
 
-    int call_level;
-    try{
-        call_level = stoi(level);
-    } catch (const std::invalid_argument &e){
-        std::cerr << "input level:" << e.what() << std::endl;
-        return ;
-    } catch (const std::out_of_range &e){
-        std::cerr << "input level:" << e.what() << std::endl;
-        return ;
-    }
-    if (call_level>=0 && call_level <=3)
-        (this->*operations[call_level])();
-    else
-        std::cerr << "levels are [DEBUG] [INFO] [WARNING] [ERROR]." << std::endl;
+    int level_n = 0;
+    while (level_n<4 && level.compare(messages[level_n]))
+        level_n++;
+    if (level_n>=0 && level_n <=3)
+        (this->*operations[level_n])();
 }
