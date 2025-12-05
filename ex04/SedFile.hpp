@@ -16,7 +16,7 @@ class SedFile
         std::string         process_line(std::string const &line);
     public:
                             SedFile(std::ifstream &ifs, std::ofstream &ofs, const std::string &needle, const std::string &replace);
-        int                process_input(void);
+        int                 process_input(void);
 };
 
 #endif

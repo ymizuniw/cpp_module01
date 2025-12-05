@@ -10,12 +10,13 @@
 // It must open the file <filename> and copy its content into a new file
 // <filename>.replace, replacing every occurrence of s1 with s2.
 
-
 int main(int argc, char **argv)
 {
     if (argc!=4)
         return (1);
     if (!argv[1] || !argv[2] || !argv[3])
+        return (1);
+    if (argv[1][0]=='\0' || argv[2][0]=='\0')
         return (1);
 
     std::string filename = argv[1];
