@@ -4,6 +4,11 @@
 #include <iostream>
 #include <iomanip>
 
+// Implement a Weapon class that has:
+// • A private attribute type, which is a string.
+// • A getType() member function that returns a constant reference to type.
+// • A setType() member function that sets type using the new value passed as a parameter.
+
 class Weapon
 {
     private:
@@ -11,15 +16,8 @@ class Weapon
     public:
         Weapon();
         Weapon(std::string weapon_name);
-        ~Weapon();
-        Weapon operator=(Weapon &other){
-            type_=other.type_;
-            return *this;
-        }
-        std::string getType(void) const;
-        void setType(std::string &type);
+        std::string const &getType(void) const;
+        void setType(std::string type);
 };
-
-void print_msg(std::string str);
 
 #endif

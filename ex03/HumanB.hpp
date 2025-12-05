@@ -2,18 +2,18 @@
 #define HUMANB_HPP
 
 #include "Weapon.hpp"
+#include <print_utils.hpp>
 
+// HumanB may not always have a weapon
 class HumanB
 {
     private:
         std::string name_;
         Weapon *weapon_;
     public:
-        HumanB(std::string human_name);
-        HumanB(std::string human_name, Weapon *weapon_name);
-        ~HumanB();
-        HumanB &operator=(const HumanB &other);
-        void attack();
+                HumanB(std::string human_name);
+        void    setWeapon(Weapon &weapon);
+        void    attack();
 };
 
 #endif

@@ -9,34 +9,23 @@ static void print_human_status(std::string &name, Weapon *weapon)
         std::cout << "weapon: no-weapon" << std::endl;
 }
 
-HumanB::HumanB(std::string human_name) : name_(human_name)
+HumanB::HumanB(std::string human_name) : name_(human_name), weapon_(NULL)
 {
     print_msg("HumanB constructor called.");
     print_human_status(name_, weapon_);
 }
 
-HumanB::HumanB(std::string human_name, Weapon *weapon_ptr) :name_(human_name), weapon_(weapon_ptr)
+void    HumanB::setWeapon(Weapon &weapon)
 {
-    print_msg("HumanB copy-constructor called.");
-    print_human_status(name_, weapon_);
-}
-
-HumanB &HumanB::operator=(const HumanB &other)
-{
-    if (this!=&other)
-    {
-        name_=other.name_;
-        weapon_=other.weapon_;
-    }
-    return *this;
+    weapon_=&weapon;
 }
 
 static void attack_log(std::string name, Weapon *weapon)
 {
     if (weapon)
-        std::cout << name << "attacks with" << weapon->getType() << std::endl;
+        std::cout << name << " attacks with " << weapon->getType() << std::endl;
     else
-        std::cout << name << "attacks with" << "no-weapon" << std::endl;
+        std::cout << name << " attacks with " << "no-weapon" << std::endl;
 }
 
 void HumanB::attack(void)
@@ -44,12 +33,12 @@ void HumanB::attack(void)
     attack_log(name_, weapon_);
 }
 
-std::string Weapon::getType() const
+std::string const &Weapon::getType() const
 {
     return (type_);
 }
 
-void Weapon::setType(std::string &type)
+void Weapon::setType(std::string type)
 {
     type_=type;
 }

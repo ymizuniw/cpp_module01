@@ -2,9 +2,9 @@
 #define HUMANA_HPP
 
 #include "Weapon.hpp"
-//use reference when non-null guarantee is needed, and when it does not need to be replaced.
-//HumanA will have weapon necessarily, then it shoul be reference member.
+#include <print_utils.hpp>
 
+//  HumanA will always be armed.
 class HumanA
 {
     private:
@@ -12,8 +12,6 @@ class HumanA
         Weapon &weapon_;
     public:
         HumanA(std::string human_name, Weapon &weapon);
-        ~HumanA();
-        HumanA &operator=(HumanA &other);
         void attack();
 };
 
