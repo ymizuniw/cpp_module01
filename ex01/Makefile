@@ -1,4 +1,4 @@
-NAME=test
+NAME=test01
 CPP=c++
 CPPFLAG=-Wall -Wextra -Werror -std=c++98
 
@@ -17,4 +17,10 @@ clean:
 	rm -f $(OBJS)
 fclean: clean
 	rm -f $(NAME)
-.PHONY: all clean fclean
+re: fclean all
+.PHONY: all clean fclean test
+
+test: all
+	./test.sh
+
+#use make -s option to build silently.
