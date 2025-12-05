@@ -6,7 +6,7 @@ if [ $? != 0 ]; then
     printf '%s\n' "read failed." 
     exit 1
 else
-    git checkout $BRANCH
+    git checkout "$BRANCH"
     if [ $? != 0 ]; then
         printf '%s\n' "checkout failed."
         exit 1
@@ -23,7 +23,7 @@ else
 fi
 
 read -p "push?[y/n]: "  PUSH
-if [ $PUSH == "y" ]; then
+if [ "$PUSH" == "y" ]; then
     git push
 else
     printf '%s\n' "read failed."

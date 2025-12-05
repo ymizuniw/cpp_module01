@@ -7,14 +7,13 @@ SRCS=\
 	$(SRC_DIR)/print_msg.cpp
 
 SRC_DIR=srcs
-OBJS=$(SRCS:.cpp=.o)
-%.o: %.cpp
-	$(CPP) $(CFLAGS) $(INCS) -c $< -o $@
+OBJS=$(SRCS:%.cpp=%.o)
 
-all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $@ $^
-
+%.o: %.cpp
+	$(CPP) $(CFLAGS) $(INCS) -c $< -o $@
+all: $(NAME)
 clean:
 	rm -f $(OBJS)
 fclean: clean
