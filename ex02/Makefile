@@ -1,17 +1,22 @@
 NAME=test
+SRCS=main.cpp
+OBJS=$(SRCS:%.cpp=%.o)
+INCS=-I.
+
 CPP=c++
-CPPFLAG=-Wall -Wextra -Werror -std=++98
+CFLAGS= -std=c++98 -Wall -Wextra -Werror
 
-SRCS=main.cpp Zombie.cpp Zombie.hpp zombieHorde.cpp
-OBJS=(SRCS:.cpp=.o)
+$(NAME): $(OBJS)
+	$(CPP) $(CFLAGS) $(OBJS) -o $@
+$(OBJS): $(SRCS)
+	$(CPP) $(CFLAGS) -c $^ -o $@
+%.o: %.cpp
+	$(CPP) $(CFLAGS) -c $< -o $@
 
-$(NAME):
-	$(CPP) $(CPPFLAG) -c $(OBJS)
-
-all: $(NAME)
+all :$(NAME)
 clean:
 	rm -f $(OBJS)
-fclean:
-	clean
+fclean: clean
 	rm -f $(NAME)
-.PHONY: all clean fclean
+re: fclean all
+.PHONY: all clean fclean re

@@ -3,7 +3,7 @@ CPP=c++
 CPPFLAG=-Wall -Wextra -Werror -std=c++98
 
 INC=Zombie.hpp
-SRCS=main.cpp Zombie.cpp Zombie.hpp zombieHorde.cpp
+SRCS=main.cpp Zombie.cpp zombieHorde.cpp
 OBJS=$(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)
@@ -15,7 +15,6 @@ $(NAME): $(OBJS)
 all: $(NAME)
 clean:
 	rm -f $(OBJS)
-fclean:
-	clean
+fclean: clean
 	rm -f $(NAME)
 .PHONY: all clean fclean

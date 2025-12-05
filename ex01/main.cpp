@@ -12,17 +12,14 @@ int main(void)
         if(!(std::cin >> how_many_zombie))
         {
             std::cerr << "invalid input." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return (1);
         }
         else
         {
-            if (how_many_zombie<0 || how_many_zombie>100)
+            if (how_many_zombie<=0 || how_many_zombie>100)
             {
-                std::cerr << "0-100 is allowed for safe." << std::endl;
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                continue ;
+                std::cerr << "1-100 is allowed for safe." << std::endl;
+                return (1);
             }
             break;
         }
@@ -32,7 +29,6 @@ int main(void)
     {
         std::cerr << "invalid input." << std::endl;
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return (1);
     }
     zombie_horde = zombieHorde(how_many_zombie, zombie_name);
