@@ -9,10 +9,21 @@ int    SedFile::process_input(void)
 {
     std::string map_line;
     std::string line;
+    size_t line_no = 0;
 
     while (std::getline(ifs_, line)){
-        map_line = process_line(line);
-        ofs_ << map_line << std::endl;
+        try{
+            line_no++;
+            map_line = process_line(line);
+            ofs_ << map_line << std::endl;
+        } catch(const std::bad_alloc &e)
+        {
+            std::cerr << "[ERROR] [line  " << line_no << " ]" << e.what() << std::endl;
+            return (-1);
+        } catch(const std::exception &e){
+            std::cerr << "[ERROR]: " << e.what() << std::endl;
+            return (-1);
+        }
     }
     return (0);
 }
