@@ -1,4 +1,4 @@
-NAME=test
+NAME=test02
 SRCS=main.cpp
 OBJS=$(SRCS:%.cpp=%.o)
 INCS=-I.
@@ -19,4 +19,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test test02
+
+test: $(NAME)
+	./test02
