@@ -20,7 +20,7 @@ void Harl::error(void)
     std::cerr << "[ERROR]: error() is called." << std::endl;
 }
 
-typedef void (Harl::*f_table)(void);//ret: void, owner: Harl::, pointer_variable_name:*f_table, arg_type:void.
+typedef void (Harl::*f_table)(void);
 
 void Harl::complain(std::string level)
 {
@@ -36,7 +36,7 @@ void Harl::complain(std::string level)
         &Harl::warning, 
         &Harl::error
     };
-
+    
     int level_n = 0;
     while (level_n<4 && level.compare(messages[level_n]))
         level_n++;

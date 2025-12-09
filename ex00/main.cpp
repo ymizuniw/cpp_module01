@@ -7,15 +7,11 @@ int main(void)
     Zombie *obj3;
 
     obj2 = newZombie("dynamic_zombie");
-    if (obj2==nullptr)
-    {
-        std::cerr << "memory allocation failed: " << std::endl;
+    if (obj2==NULL)
         return (1);
-    }
     obj3 = newZombie("");
-    if (obj3==nullptr)
+    if (obj3==NULL)
     {
-        std::cerr << "memory allocation failed: " << std::endl;
         delete(obj2);
         return (1);
     }

@@ -7,9 +7,7 @@ CPP=c++
 CFLAGS= -std=c++98 -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
-	$(CPP) $(CFLAGS) $(OBJS) -o $@
-$(OBJS): $(SRCS)
-	$(CPP) $(CFLAGS) -c $^ -o $@
+	$(CPP) $(CFLAGS) -o $@ $(OBJS)
 %.o: %.cpp
 	$(CPP) $(CFLAGS) -c $< -o $@
 
@@ -19,7 +17,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
-.PHONY: all clean fclean re test test02
+.PHONY: all clean fclean re test
 
 test: $(NAME)
 	./test02

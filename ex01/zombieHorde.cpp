@@ -7,13 +7,13 @@ Zombie* zombieHorde(int N, std::string name)
     if (N<0)
     {
         std::cerr << "N should positive value." << std::endl;
-        return (nullptr);
+        return (NULL);
     }
     try{
         zombie_horde = new Zombie[N];
     } catch(std::bad_alloc &e){
         std::cerr << "Memory allocation failed." << std::endl;
-        return (nullptr);
+        return (NULL);
     }
     for (int idx=0;idx<N;idx++)
         zombie_horde[idx].set_name(name);

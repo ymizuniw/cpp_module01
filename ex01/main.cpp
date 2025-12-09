@@ -16,9 +16,9 @@ int main(void)
         }
         else
         {
-            if (how_many_zombie<=0 || how_many_zombie>100)
+            if (how_many_zombie<0 || how_many_zombie>1000)
             {
-                std::cerr << "1-100 is allowed for safe." << std::endl;
+                std::cerr << "1-1000 is allowed for safe." << std::endl;
                 return (1);
             }
             break;
@@ -32,7 +32,7 @@ int main(void)
         return (1);
     }
     zombie_horde = zombieHorde(how_many_zombie, zombie_name);
-    if (zombie_horde==nullptr)
+    if (zombie_horde==NULL)
         return (1);
     for (int i=0;i<how_many_zombie;i++)
         zombie_horde[i].announce();

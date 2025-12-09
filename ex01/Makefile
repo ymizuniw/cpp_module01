@@ -18,7 +18,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 re: fclean all
-.PHONY: all clean fclean test test01
+.PHONY: all clean fclean
 
 test: all
 	./test.sh

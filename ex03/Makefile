@@ -26,4 +26,4 @@ fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 re: fclean all
-.PHONY: all clean fclean re test03
+.PHONY: all clean fclean re
