@@ -4,7 +4,6 @@
 #include "Weapon.hpp"
 #include <print_utils.hpp>
 
-//  HumanA will always be armed.
 class HumanA
 {
     private:

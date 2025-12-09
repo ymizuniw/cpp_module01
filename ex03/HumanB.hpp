@@ -4,7 +4,6 @@
 #include "Weapon.hpp"
 #include <print_utils.hpp>
 
-// HumanB may not always have a weapon
 class HumanB
 {
     private:

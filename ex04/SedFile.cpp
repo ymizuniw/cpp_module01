@@ -2,7 +2,6 @@
 
 SedFile::SedFile(std::ifstream &ifs, std::ofstream &ofs,std::string const &needle, std::string const &replace): ifs_(ifs), ofs_(ofs), needle_(needle), needle_len_(needle.length()), replace_(replace)
 {
-    ;
 }
 
 int    SedFile::process_input(void)
