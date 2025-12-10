@@ -2,9 +2,9 @@
 
 int main(void)
 {
-    int how_many_zombie;
+    int         how_many_zombie;
     std::string zombie_name;
-    Zombie *zombie_horde;
+    Zombie      *zombie_horde;
 
     while (1)
     {

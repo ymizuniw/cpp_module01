@@ -20,7 +20,4 @@ fclean: clean
 re: fclean all
 .PHONY: all clean fclean
 
-test: all
-	./test.sh
-
 #use make -s option to build silently.
