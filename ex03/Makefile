@@ -1,8 +1,8 @@
-CPP=c++
-CFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX=c++
+CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
 
 NAME=test03
-INCS=-I. -I$(LIBFT_DIR)/includes
+CXXFLAGS=-I. -I$(LIBFT_DIR)/includes
 SRCS=HumanA.cpp\
 HumanB.cpp\
 main.cpp\
@@ -12,9 +12,9 @@ LIB=$(LIBFT_DIR)/libft_cpp.a
 LIBFT_DIR=../libft_cpp
 
 $(NAME): $(OBJS) $(LIB)
-	$(CPP) $(CFLAGS) $(OBJS) $(LIB) -o $@
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIB) 
 %.o: %.cpp
-	$(CPP) $(CFLAGS) $(INCS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(CXXFLAGS) -c $< -o $@
 $(LIB):
 	$(MAKE) -C $(LIBFT_DIR)
 

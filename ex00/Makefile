@@ -3,16 +3,15 @@ SRCS=main.cpp\
 newZombie.cpp\
 randomChump.cpp\
 Zombie.cpp
-INCS=-I.
+CPPFLAGS=-I.
 OBJS=$(SRCS:%.cpp=%.o)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 $(OJBS): $(SRCS)
-	$(CPP) $(CFLAGS) -o $@
+	$(CXX) $(CXXFLAGS) -o $@
 %.o: %.cpp
-	$(CPP) $(CFLAGS) $(INCS) -c $< -o $@
-
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 all: $(NAME)
 clean:
 	rm -f $(OBJS)
@@ -21,5 +20,5 @@ fclean: clean
 re: fclean all
 .PHONY: all clean fclean re
 
-CPP=c++
-CFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX=c++
+CXXFLAGS=-std=c++98 -Wall -Wextra -Werror

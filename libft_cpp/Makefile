@@ -1,7 +1,7 @@
 NAME=libft_cpp.a
 AR=ar rcs
-CPP=c++
-CFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX=c++
+CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
 INCS=-Iincludes
 SRCS=\
 	$(SRC_DIR)/print_msg.cpp
@@ -12,7 +12,7 @@ OBJS=$(SRCS:%.cpp=%.o)
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 %.o: %.cpp
-	$(CPP) $(CFLAGS) $(INCS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCS) -c $< -o $@
 all: $(NAME)
 clean:
 	rm -f $(OBJS)

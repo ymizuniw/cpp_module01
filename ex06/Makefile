@@ -3,13 +3,13 @@ SRCS=Harl.cpp\
 main.cpp
 OBJS=$(SRCS:%.cpp=%.o)
 
-CPP=c++
-CFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX=c++
+CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
-	$(CPP) $(CFLAGS) -o $@ $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 %.o : %.cpp
-	$(CPP) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)
 clean:

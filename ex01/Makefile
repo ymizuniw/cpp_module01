@@ -1,16 +1,16 @@
 NAME=test01
-CPP=c++
-CPPFLAG=-Wall -Wextra -Werror -std=c++98
+CXX=c++
+CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 
-INC=Zombie.hpp
+CPPFLAGS=Zombie.hpp
 SRCS=main.cpp Zombie.cpp zombieHorde.cpp
 OBJS=$(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)
-	$(CPP) -o $@ $^
+	$(CXX) -o $@ $^
 
-%.o: %.cpp $(INC)
-	$(CPP) $(CPPFLAG) -c $< -o $@
+%.o: %.cpp $(CPPFLAGS)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 all: $(NAME)
 clean:
