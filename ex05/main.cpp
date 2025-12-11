@@ -11,9 +11,7 @@ int main(void)
         std::cin >> input_level;
         if (std::cin.eof())
         {
-            std::cerr << "invalid input" << std::endl;
-            std::cin.clear();
-            std::cin.seekg(0);
+            std::cerr << "EOF" << std::endl;
             return (0);
         }
         else if (std::cin.fail() || std::cin.bad())

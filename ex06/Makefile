@@ -1,14 +1,14 @@
-NAME=test06
-SRCS=Harl.cpp\
+NAME = test06
+SRCS = Harl.cpp \
 main.cpp
 OBJS=$(SRCS:%.cpp=%.o)
 
-CXX=c++
-CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-$(NAME) : $(OBJS)
+$(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
-%.o : %.cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)

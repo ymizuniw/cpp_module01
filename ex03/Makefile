@@ -1,20 +1,20 @@
-CXX=c++
-CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME=test03
-CXXFLAGS=-I. -I$(LIBFT_DIR)/includes
-SRCS=HumanA.cpp\
-HumanB.cpp\
-main.cpp\
+NAME = test03
+CPPFLAGS = -I. -I$(LIBFT_DIR)/includes
+SRCS = HumanA.cpp \
+HumanB.cpp \
+main.cpp \
 Weapon.cpp
 OBJS=$(SRCS:%.cpp=%.o)
-LIB=$(LIBFT_DIR)/libft_cpp.a
-LIBFT_DIR=../libft_cpp
+LIB = $(LIBFT_DIR)/libft_cpp.a
+LIBFT_DIR = ../libft_cpp
 
 $(NAME): $(OBJS) $(LIB)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIB) 
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIB)
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ -c $<
 $(LIB):
 	$(MAKE) -C $(LIBFT_DIR)
 

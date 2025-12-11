@@ -1,30 +1,30 @@
-LIBFT_DIR=../libft_cpp
-LIBFT=$(LIBFT_DIR)/libft_cpp.a
-LIBS=$(LIBFT)
+LIBFT_DIR = ../libft_cpp
+LIBFT = $(LIBFT_DIR)/libft_cpp.a
+LIBS = $(LIBFT)
 
-NAME=test04
-SRCS=main.cpp\
+TARGET = test04
+SRCS = main.cpp \
 SedFile.cpp
-CPPFLAGS=-I. -I$(LIBFT_DIR)/includes
+CPPFLAGS = -I. -I$(LIBFT_DIR)/includes
 OBJS=$(SRCS:%.cpp=%.o)
 
-CXX=c++
-CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-$(NAME): $(OBJS) $(LIBS)
+$(TARGET): $(OBJS) $(LIBS)
 	$(CXX) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
 $(LIBS):
 	$(MAKE) -C $(LIBFT_DIR)
-%.o : %.cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 
-all: $(NAME)
+all: $(TARGET)
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f $(OBJS)
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	rm -f $(NAME)
+	rm -f $(TARGET)
 	./delete.sh
 re: fclean all
 .PHONY: all clean fclean re

@@ -1,9 +1,9 @@
-NAME=test01
-CXX=c++
-CXXFLAGS=-Wall -Wextra -Werror -std=c++98
+NAME = test01
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-CPPFLAGS=Zombie.hpp
-SRCS=main.cpp Zombie.cpp zombieHorde.cpp
+CPPFLAGS = -I.
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 OBJS=$(SRCS:.cpp=.o)
 
 $(NAME): $(OBJS)

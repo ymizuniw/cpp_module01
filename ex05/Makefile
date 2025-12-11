@@ -1,17 +1,17 @@
-NAME=test05
-SRCS=Harl.cpp\
+NAME = test05
+SRCS = Harl.cpp \
 	main.cpp
 OBJS=$(SRCS:%.cpp=%.o)
 
-CPP=c++
-CFLAGS=-std=c++98 -Wall -Wextra -Werror
+CPP = c++
+CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) -o $@ $(OBJS)
-%.o : %.cpp
+%.o: %.cpp
 	$(CPP) $(CFLAGS) -c $< -o $@
 
-all : $(NAME)
+all: $(NAME)
 clean:
 	rm -f $(OBJS)
 fclean: clean

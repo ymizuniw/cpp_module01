@@ -1,18 +1,18 @@
-NAME=libft_cpp.a
-AR=ar rcs
-CXX=c++
-CXXFLAGS=-std=c++98 -Wall -Wextra -Werror
-INCS=-Iincludes
-SRCS=\
+NAME = libft_cpp.a
+AR = ar rcs
+CXX = c++
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+CPPFLAGS = -I./includes
+SRCS = \
 	$(SRC_DIR)/print_msg.cpp
 
-SRC_DIR=srcs
+SRC_DIR = srcs
 OBJS=$(SRCS:%.cpp=%.o)
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	$(AR) $@  $^
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(INCS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 all: $(NAME)
 clean:
 	rm -f $(OBJS)

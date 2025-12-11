@@ -12,7 +12,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-    std::cerr << "[WARNIGN]: warning() is called." << std::endl;
+    std::cerr << "[WARNING]: warning() is called." << std::endl;
 }
 
 void Harl::error(void)
