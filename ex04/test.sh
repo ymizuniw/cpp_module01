@@ -19,8 +19,24 @@ if [ $? != 0 ]; then
 fi
 
 make 1>/dev/null
-./test04 $FILENAME $TOREPLACE $REPLACEWITH
-sed "s/"$TOREPLACE"/"$REPLACEWITH"/g" $FILENAME > $FILENAME.sed
+./test04 $FILENAME "$TOREPLACE" "$REPLACEWITH"
+sed "s/${TOREPLACE}/${REPLACEWITH}/g" $FILENAME > $FILENAME.sed
+
+find ./ -type f -name "$FILENAME.replace"
+
+if [ $? != 0 ]; then
+    echo "replacement didn't occur. check if the input is correct."
+    exit 1
+fi
+
+find ./ -type f -name "$FILENAME.sed"
+
+if [ $? != 0 ]; then
+    echo "replacement didn't occur. check if the input is correct."
+    exit 1
+fi
+
+if [ -z "$FILENAME." ]
 
 diff $FILENAME.replace $FILENAME.sed > $FILENAME.diff
 
