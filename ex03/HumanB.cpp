@@ -15,9 +15,9 @@ HumanB::HumanB(std::string human_name) : name_(human_name), weapon_(NULL)
     print_human_status(name_, weapon_);
 }
 
-void    HumanB::setWeapon(Weapon &weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-    weapon_=&weapon;
+    weapon_ = &weapon;
 }
 
 static void attack_log(std::string name, Weapon *weapon)
@@ -40,5 +40,5 @@ std::string const &Weapon::getType() const
 
 void Weapon::setType(std::string type)
 {
-    type_=type;
+    type_ = type;
 }

@@ -6,7 +6,7 @@ static void print_human_status(std::string &name, Weapon &weapon)
     std::cout << "weapon: " << weapon.getType() << std::endl;
 }
 
-HumanA::HumanA(std::string human_name, Weapon &weapon_ref): name_(human_name), weapon_(weapon_ref)
+HumanA::HumanA(std::string human_name, Weapon &weapon_ref) : name_(human_name), weapon_(weapon_ref)
 {
     print_msg("HumanA constructor called.");
     print_human_status(name_, weapon_);

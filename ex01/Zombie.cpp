@@ -7,7 +7,7 @@ void print_msg(std::string msg)
 
 void Zombie::set_name(std::string name)
 {
-    name_=name;
+    name_ = name;
 }
 
 Zombie::Zombie(void)

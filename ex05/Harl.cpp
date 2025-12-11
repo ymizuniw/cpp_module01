@@ -1,5 +1,5 @@
 #include "Harl.hpp"
-    
+
 void Harl::debug(void)
 {
     std::cerr << "[DEBUG]: debug() is called." << std::endl;
@@ -24,22 +24,20 @@ typedef void (Harl::*f_table)(void);
 
 void Harl::complain(std::string level)
 {
-    static const std::string messages[4]={
+    static const std::string messages[4] = {
         "DEBUG",
         "INFO",
         "WARNING",
-        "ERROR"
-    };
+        "ERROR"};
     f_table operations[4] = {
-        &Harl::debug, 
-        &Harl::info, 
-        &Harl::warning, 
-        &Harl::error
-    };
-    
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error};
+
     int level_n = 0;
-    while (level_n<4 && level.compare(messages[level_n]))
+    while (level_n < 4 && level.compare(messages[level_n]))
         level_n++;
-    if (level_n>=0 && level_n <=3)
+    if (level_n >= 0 && level_n <= 3)
         (this->*operations[level_n])();
 }

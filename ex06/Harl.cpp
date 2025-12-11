@@ -24,27 +24,31 @@ typedef void (Harl::*t_message)(void);
 
 void Harl::complain(std::string level)
 {
-    static const std::string levels[4] ={
+    static const std::string levels[4] = {
         "DEBUG",
         "INFO",
         "WARNING",
-        "ERROR"
-    };
+        "ERROR"};
     t_message message_table[4] = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
-        &Harl::error
-    };
+        &Harl::error};
     int n = 0;
-    while (n<4 && level.compare(levels[n]))
+    while (n < 4 && level.compare(levels[n]))
         n++;
-    switch (n){
-        case 0: (this->*message_table[0])();
-        case 1: (this->*message_table[1])();
-        case 2: (this->*message_table[2])();
-        case 3: (this->*message_table[3])(); 
-            break;
-        default: return;
+    switch (n)
+    {
+    case 0:
+        (this->*message_table[0])();
+    case 1:
+        (this->*message_table[1])();
+    case 2:
+        (this->*message_table[2])();
+    case 3:
+        (this->*message_table[3])();
+        break;
+    default:
+        return;
     }
 }

@@ -12,11 +12,11 @@
 
 int main(int argc, char **argv)
 {
-    if (argc!=4)
+    if (argc != 4)
         return (1);
     if (!argv[1] || !argv[2] || !argv[3])
         return (1);
-    if (argv[1][0]=='\0' || argv[2][0]=='\0')
+    if (argv[1][0] == '\0' || argv[2][0] == '\0')
         return (1);
 
     std::string filename = argv[1];
@@ -27,19 +27,21 @@ int main(int argc, char **argv)
 
     char const *in_filename_to_open = filename.c_str();
     ifs.open(in_filename_to_open, std::ios_base::in);
-    if (!ifs){
+    if (!ifs)
+    {
         std::cerr << "file could not be opened." << std::endl;
         return (1);
     }
     std::string file_name_replaced = filename + ".replace";
     char const *out_file_name_to_open = file_name_replaced.c_str();
     ofs.open(out_file_name_to_open, std::ios_base::out | std::ios_base::trunc);
-    if(!ofs){
+    if (!ofs)
+    {
         std::cerr << "file could not be opened." << std::endl;
         return (1);
     }
     SedFile sed(ifs, ofs, needle, replace);
-    if (sed.process_input()<0)
+    if (sed.process_input() < 0)
         return (1);
     return (0);
 }

@@ -6,10 +6,11 @@ int main(void)
     Harl harl;
     std::string input_level;
 
-    for (int i=0;i<100;i++)
+    for (int i = 0; i < 100; i++)
     {
         std::cin >> input_level;
-        if (std::cin.eof()){
+        if (std::cin.eof())
+        {
             std::cerr << "invalid input" << std::endl;
             std::cin.clear();
             std::cin.seekg(0);
