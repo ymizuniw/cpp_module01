@@ -1,4 +1,4 @@
-NAME = test
+NAME = test00
 SRCS = main.cpp \
 newZombie.cpp \
 randomChump.cpp \

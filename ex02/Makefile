@@ -3,7 +3,7 @@ SRCS = main.cpp
 OBJS=$(SRCS:%.cpp=%.o)
 CPPFLAGS = -I.
 
-CPP = c++
+CXX = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 $(NAME): $(OBJS)
