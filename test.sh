@@ -6,4 +6,4 @@ cd ../ex02 && make && ./test03
 cd ../ex03 && make && ./test03
 cd ../ex04 && make && ./test04
 cd ../ex05 && make && ./test05 <<< INFO
-cd ../ex06 && make && ./test06 DEBUG
+cd ../ex06 && make && ./test06 WARNING

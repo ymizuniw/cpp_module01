@@ -2,7 +2,7 @@ LIBFT_DIR = ../libft_cpp
 LIBFT = $(LIBFT_DIR)/libft_cpp.a
 LIBS = $(LIBFT)
 
-NAME = test04
+NAME = test4
 SRCS = main.cpp \
 SedFile.cpp
 CPPFLAGS = -I. -I$(LIBFT_DIR)/includes
@@ -25,6 +25,5 @@ clean:
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
-	./delete.sh
 re: fclean all
 .PHONY: all clean fclean re
